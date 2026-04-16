@@ -3,11 +3,33 @@ from typing import List, Dict
 
 # --- Input Models ---
 
+class DetailedScores(BaseModel):
+    Fluent_Communication: int
+    Punctuality: int
+    Integrity_Reliability: int
+    Career_Stability: int
+    Efficiency_Agility: int
+    High_Energy_Motivation: int
+    Adaptability_Inclusion: int
+    Target_Age_Group: int
+    Clean_Record: int
+    Team_Player: int
+    Active_Listening: int
+    Customer_Centricity: int
+    O: int
+
+class AnalysisResult(BaseModel):
+    candidate_name: str
+    match_percentage: int
+    detailed_scores: DetailedScores
+    summary: str
+    sources: List[str]
+    recommendation: str
+
 class AssessmentInput(BaseModel):
-    source: str  # "social_analysis" or "chat_interaction"
-    metrics: Dict[str, int]  # e.g., {"patience": 90, "communication": 85}
-    behavioral_traits: List[str]
-    raw_score: int
+    status: str
+    candidate: str
+    analysis_result: AnalysisResult
 
 # --- Output Models ---
 
